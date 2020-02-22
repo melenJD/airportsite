@@ -1,0 +1,12 @@
+:root {
+  --melen-gold: #FFDF00;
+  --melen-darkblue: #1D2951;
+  --melen-more-darkblue: #040e29;
+  --melen-darkgold: #FFAE0D;
+}
+
+.box {
+  position: relative;
+  background-color: var(--melen-darkblue);
+  min-height: 100px;
+}

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const reservationSchema = mongoose.Schema({
-  name: String,
+  id: String,
   station: String,
   date: String
 })
 
-const model = mongoose('Reservation', reservationSchema)
+const model = mongoose.model('Reservation', reservationSchema)
 
 module.exports = model

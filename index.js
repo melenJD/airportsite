@@ -56,6 +56,8 @@ app.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
+app.use('/admin', require('./routes/admin'))
+
 app.use('/login', require('./routes/login'))
 app.use('/register', require('./routes/register'))
 app.use('/reservation', require('./routes/reservation'))

@@ -5,6 +5,6 @@ const stationSchema = mongoose.Schema({
   price: Number
 })
 
-const model = mongoose('Station', stationSchema)
+const model = mongoose.model('Station', stationSchema)
 
 module.exports = model
