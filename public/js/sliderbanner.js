@@ -1,10 +1,11 @@
 let slideIndex = 0;
+let timeint = null;
 init();
 
 function init() {
   showSlides(slideIndex)
   nextSlide()
-  setInterval(nextSlide, 5000)
+  timeint = setInterval(nextSlide, 5000)
 }
 
 function nextSlide() {
@@ -13,10 +14,14 @@ function nextSlide() {
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
+  clearInterval(timeint)
+  timeint = setInterval(nextSlide, 5000)
 }
 
 function currentSlide(n) {
   showSlides(slideIndex = n);
+  clearInterval(timeint)
+  timeint = setInterval(nextSlide, 5000)
 }
 
 function showSlides(n) {

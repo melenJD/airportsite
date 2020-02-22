@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include partials/head.pug
+  body
+    include partials/nav.pug
+    .screen-center
+      h1 Reservation
+      form.reservation-form.width-center(action='/reservation' method='post')
+        if (user == null)
+          .screen-center
+            p.font-size20 로그인이 필요한 기능입니다
+        else
+          .reservation-name
+            p 예약자명 = 
+              span= user.name
+          .screen-center
+            table.width-center.reservation-table
+              tbody
+                tr
+                  td
+                    label(for='station' style='font-size:16pt') 여행지
+                  td
+                    select(name='station' id='station')
+                      option(value="france") 프랑스
+                  td(rowspan='2')
+                    button(type="submit") 예약
+                tr
+                  td
+                    label(for='date' style='font-size:16pt') 여행일
+                  td
+                    input(type='date' id='date' name='date')

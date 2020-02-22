@@ -4,6 +4,12 @@
   --melen-more-darkblue: #040e29;
   --melen-darkgold: #FFAE0D;
 }
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   background-color: var(--melen-more-darkblue);
 }
@@ -14,6 +20,7 @@ body {
   font-family: 'Noto Sans KR';
   box-sizing:border-box;
   color: var(--melen-gold);
+  font-weight: 500;
 }
 
 a {
@@ -21,11 +28,12 @@ a {
 }
 
 nav {
-  position: relative;
+  position: fixed;
   min-width: 800px;
   width: 100%;
   height: 50px;
   background-color: var(--melen-darkblue);
+  z-index: 1;
 }
 
 nav div {
@@ -72,9 +80,11 @@ nav>div>ul>li:first-child {
 }
 
 .slider-container {
+  left:50%;
+  transform: translate(-50%);
   position: relative;
   max-width: 1000px;
-  margin: auto;
+  top: 50px;
 }
 
 .container {
@@ -84,6 +94,7 @@ nav>div>ul>li:first-child {
   transform: translate(-50%);
   color: var(--melen-gold);
   text-align: center;
+  top: 100px;
 }
 
 .image-slide {
@@ -184,8 +195,8 @@ nav>div>ul>li:first-child {
   border-radius: 5%;
   box-shadow: 0 0 25px rgba(0,0,0,0.4);
   left: 50%;
-  top: 100px;
-  transform: translate(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--melen-darkblue);
   text-align: center;
 }
@@ -204,4 +215,94 @@ nav>div>ul>li:first-child {
 
 .login-table td{
   text-align: right;
+}
+
+.link-box {
+  padding: 20px;
+  background-color: var(--melen-gold);
+  color: var(--melen-more-darkblue);
+  font-size: 20pt;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.screen-center {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.reservation-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  margin-top: 30px;
+  padding: 20px;
+  background-color: var(--melen-darkblue);
+  width: 750px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.reservation-form select, .reservation-form input[type='date'] {
+  width: 200px;
+  height: 40px;
+  font-size: 16pt;
+  color: var(--melen-gold);
+  outline: 0;
+  border: 0;
+  background-color: var(--melen-darkblue);
+  border-bottom: 2px solid var(--melen-gold);
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: var(--melen-darkblue);
+  color: var(--melen-gold);
+  -webkit-appearance: none;
+}
+
+.reservation-form select option {
+  font-size: 10pt;
+}
+
+.reservation-form label {
+  margin-right: 10px;
+}
+
+.font-size20 {
+  font-size: 20pt;
+}
+
+.reservation-name {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.reservation-table {
+  border-collapse: collapse;
+}
+
+.reservation-table td {
+  padding: 0;
+}
+
+.reservation-table button {
+  position: relative;
+  border: 0;
+  outline: 0;
+  background-color: var(--melen-gold);
+  color: var(--melen-more-darkblue);
+  height: 80px;
+  width: 80px;
+  font-size: 14pt;
 }

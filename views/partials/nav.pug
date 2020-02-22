@@ -14,6 +14,9 @@ nav
           a.btn(href="/login") 로그인
       else
         li
-          a.btn(href="/mypage") 마이페이지
+          if(user.name === 'admin')
+            a.btn(href="/admin") 관리페이지
+          else
+            a.btn(href="/mypage") 내정보
         li
           a.btn(href="/logout") 로그아웃
