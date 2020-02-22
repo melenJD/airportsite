@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ./partials/head.pug
+  body
+    include ./partials/nav.pug
+    .login
+      form(action='/login' method='post')
+        h1 로그인
+        br
+        table.width-center.login-table
+          tbody
+            tr
+              td
+                label(for='email') 이메일
+              td
+                input(type='email' name='email' id='email' autocomplete='off')
+            tr
+              td
+                label(for='password') 비밀번호
+              td
+                input(type='password' name='password' id='password')
+        br
+        button.btn(type="submit") 로그인
+      br
+      p 아이디가 없으신가요?  
+        a(href='/register') 회원가입

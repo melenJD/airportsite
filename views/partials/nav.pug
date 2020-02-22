@@ -9,5 +9,11 @@ nav
         a(href="/reservation") 예약
       li 
         a(href="/info") 여행정보
-      li
-        a.btn(href="/login") 로그인
+      if(user == null)
+        li
+          a.btn(href="/login") 로그인
+      else
+        li
+          a.btn(href="/mypage") 마이페이지
+        li
+          a.btn(href="/logout") 로그아웃

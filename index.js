@@ -9,6 +9,7 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const mongoose = require('mongoose')
+const User = require('./models/user')
 const app = express()
 
 //App settings
@@ -24,6 +25,11 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
+
+//passport settings
+passport.use(User.createStrategy())
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 //Mongoose settings
 mongoose.set('useNewUrlParser', true)
@@ -43,8 +49,16 @@ db.on('error', (err) => {
 
 //routes
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {user: req.user})
 })
+
+app.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/')
+})
+
+app.use('/login', require('./routes/login'))
+app.use('/register', require('./routes/register'))
 
 //port and start
 const port = 3000

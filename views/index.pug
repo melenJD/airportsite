@@ -4,21 +4,39 @@ html(lang="en")
     include partials/head.pug
   body
     include partials/nav.pug
-    .image-slide(style="background-image: url('../images/rome.jpg');")
-      .bg
-      .image-slide-text
-        a(href="/")
-          h1 로마
-          p 로마 설명
-    .image-slide(style="background-image: url('../images/washington.jpg');")
-      .bg
-      .image-slide-text
-        a(href="/")
-          h1 워싱턴
-          p 워싱턴 설명
-    .image-slide(style="background-image: url('../images/france.jpg');")
-      .bg
-      .image-slide-text
-        a(href="/")
-          h1 프랑스
-          p 프랑스 설명
+    .slider-container
+      .image-slide
+        .bg
+        img(src="/images/rome.jpg" style="width:100%;")
+        .image-slide-text
+          a(href="/")
+            h1 로마
+            p 로마 설명
+      .image-slide
+        .bg
+        img(src="/images/france.jpg" style="width:100%;")
+        .image-slide-text
+          a(href="/")
+            h1 프랑스
+            p 프랑스 설명
+      .image-slide
+        .bg
+        img(src="/images/washington.jpg" style="width:100%;")
+        .image-slide-text
+          a(href="/")
+            h1 워싱턴
+            p 워싱턴 설명
+      
+      a.prev(onclick="plusSlides(-1)") &#10094;
+      a.next(onclick="plusSlides(1)") &#10095;
+
+      div.dot-box
+        span.dot(onclick="currentSlide(1)")
+        span.dot(onclick="currentSlide(2)")
+        span.dot(onclick="currentSlide(3)")
+    br
+    .container
+      h2 저희 melen Airport 에서는 고객의 안전을 최우선으로 생각합니다
+      if(user != null)
+        h1= user.name
+    script(src="js/sliderbanner.js")
