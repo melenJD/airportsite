@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const inputData = new Reservation({
     id: req.user._id,
+    name: req.user.name,
     station: req.body.station,
     date: req.body.date
   })

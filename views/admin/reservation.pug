@@ -10,9 +10,9 @@ html(lang="en")
         h1(style="display:inline;") 예약 관리
       -for(let i=0;i<reservations.length;i++)
         .box
-          h1= stations[i].name
+          h1= reservations[i].station
           span 예약자 = 
-            span= users[i].name
+            span= reservations[i].name
           br
           span 일시 = 
             span= reservations[i].date

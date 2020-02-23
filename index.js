@@ -64,15 +64,7 @@ app.get('/logout', (req, res) => {
 app.get('/mypage', isLogin, (req, res) => {
   Reservation.find({id:req.user._id}, async (err, reservations) => {
     if(err) console.log(err)
-    stations = []
-    for(let i=0;i<reservations.length;i++){
-      await Station.findOne({_id:reservations[i].station}, async (err, station) => {
-          if(err) return console.log(err)
-           await stations.push(station)
-        })
-    }
-    console.log(stations)
-    res.render('mypage', {user: req.user, reservations:reservations, stations:stations})
+    res.render('mypage', {user: req.user, reservations:reservations})
   })
 })
 

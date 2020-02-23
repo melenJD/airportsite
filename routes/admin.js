@@ -59,23 +59,10 @@ let users = []
 let stations = []
 
 router.get('/reservation', checkAdmin, (req, res) => {
-  users = []
-  stations = []
-  Reservation.find({}, async (err, reservations) => {
-    for(let i=0;i<reservations.length;i++){
-      await User.findOne({_id:reservations[i].id}, async (err, user_) => {
-        if(err) return console.log(err)
-        await users.push(user_)
-      })
-      await Station.findOne({_id:reservations[i].station}, async (err, station_) => {
-        if(err) return console.log(err)
-        await stations.push(station_)
-      })
+  Reservation.find({}, (err, reservations) => {
+      res.render('admin/reservation', {user:req.user, reservations:reservations})
     }
-    console.log(stations.length)
-    console.log(users.length)
-    res.render('admin/reservation', {user:req.user, reservations:reservations, users:users, stations:stations})
-  })
+  )
 })
 
 router.get('/reservation/:id/delete', checkAdmin, (req, res) => {
