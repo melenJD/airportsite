@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ../partials/head.pug
+    link(rel="stylesheet", href="/css/admin.css")
+  body
+    include ../partials/nav.pug
+    .container
+      .title-box
+        h1(style="display:inline;") 예약 관리
+      -for(let i=0;i<reservations.length;i++)
+        .box
+          h1= stations[i].name
+          span 예약자 = 
+            span= users[i].name
+          br
+          span 일시 = 
+            span= reservations[i].date
+          .a-list
+            a(href="/admin/reservation/"+reservations[i]._id+"/delete") 삭제

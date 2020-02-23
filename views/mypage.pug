@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ./partials/head.pug
+    link(rel="stylesheet", href="css/admin.css")
+  body
+    include ./partials/nav.pug
+    .container
+      .title-box
+        h1(style="display:inline;") 마이페이지
+        .a-list
+          a(href="/admin/station/add") 추가
+      if (stations.length == 0)
+        .box
+          h1 예약하신 여행이 없습니다
+      -for(let i=0;i<stations.length;i++)
+        .box
+          h1= stations[i].name
+          span 가격 = 
+            span= stations[i].price
+          .when(style="position:absolute;left:20px;top:20px;")
+            span= reservations[i].date
+          .a-list
+            a(href="/mypage/"+reservations[i]._id+"/delete") 취소

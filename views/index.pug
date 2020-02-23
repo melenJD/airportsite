@@ -5,36 +5,21 @@ html(lang="en")
   body
     include partials/nav.pug
     .slider-container
-      .image-slide
-        .bg
-        img(src="/images/rome.jpg" style="width:100%;")
-        .image-slide-text
-          a(href="/")
-            h1 로마
-            p 로마 설명
-      .image-slide
-        .bg
-        img(src="/images/france.jpg" style="width:100%;")
-        .image-slide-text
-          a(href="/")
-            h1 프랑스
-            p 프랑스 설명
-      .image-slide
-        .bg
-        img(src="/images/washington.jpg" style="width:100%;")
-        .image-slide-text
-          a(href="/")
-            h1 워싱턴
-            p 워싱턴 설명
+      -for(let i=0;i<stations.length;i++)
+        .image-slide
+          .bg
+          img(src="/images/"+stations[i].picName+".jpg" style="width:100%;")
+          .image-slide-text
+            a(href="/reservation")
+              h1= stations[i].name
       
       a.prev(onclick="plusSlides(-1)") &#10094;
       a.next(onclick="plusSlides(1)") &#10095;
 
       div.dot-box
-        span.dot(onclick="currentSlide(1)")
-        span.dot(onclick="currentSlide(2)")
-        span.dot(onclick="currentSlide(3)")
-    br
+        -for(let i=1;i<=stations.length;i++)
+          span.dot(onclick="currentSlide("+i+")")
     .container
-      a.link-box(href="/reservation") 예약 페이지로 &gt;
+      .link-box.width-center
+        a.height-center(href="/reservation") 예약 페이지로 &gt;
     script(src="js/sliderbanner.js")

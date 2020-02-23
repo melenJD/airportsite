@@ -6,5 +6,11 @@ html(lang="en")
   body
     include ../partials/nav.pug
     .container
-      .box
+      .title-box
         h1 관리자 페이지
+      .box
+        .link-box.width-center
+          a.height-center(href='admin/station') 여행 관리
+      .box
+        .link-box.width-center
+          a.height-center(href='admin/reservation') 예약 관리

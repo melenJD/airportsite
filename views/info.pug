@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ./partials/head.pug
+    link(rel="stylesheet", href="css/admin.css")
+  body
+    include ./partials/nav.pug
+    .container
+      .title-box
+        h1(style="display:inline;") 여행정보
+      if (stations.length == 0)
+        .box
+          h1 예약하신 여행이 없습니다
+      -for(let i=0;i<stations.length;i++)
+        .box
+          h1= stations[i].name
+          span 가격 = 
+            span= stations[i].price

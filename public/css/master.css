@@ -217,13 +217,24 @@ nav>div>ul>li:first-child {
   text-align: right;
 }
 
+.height-center {
+  position: relative;
+  transform: translate(0, -50%);
+  top: 30%;
+}
+
 .link-box {
-  padding: 20px;
+  width: 200px;
+  height: 100px;
   background-color: var(--melen-gold);
   color: var(--melen-more-darkblue);
   font-size: 20pt;
   font-weight: 700;
   border-radius: 10px;
+}
+
+.link-box a{
+  color: var(--melen-more-darkblue)
 }
 
 .screen-center {

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ../partials/head.pug
+    link(rel="stylesheet", href="/css/admin.css")
+  body
+    include ../partials/nav.pug
+    .container
+      .title-box
+        h1(style="display:inline;") 여행 관리
+        .a-list
+          a(href="/admin/station/add") 추가
+      -for(let i=0;i<stations.length;i++)
+        .box
+          h1= stations[i].name
+          span 가격 = 
+            span= stations[i].price
+          .a-list
+            a(href="/admin/station/"+stations[i]._id+"/edit") 편집
+            a(href="/admin/station/"+stations[i]._id+"/delete") 삭제

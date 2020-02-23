@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    include ../partials/head.pug
+    link(rel="stylesheet", href="/css/admin.css")
+  body
+    include ../partials/nav.pug
+    .screen-center
+      form.table-form.width-center(action="/admin/station/"+station._id+"?_method=put" method="post")
+        h1 여행 수정
+        table.table-table
+          tbody
+            tr
+              td
+                label(for="name") 여행이름
+              td
+                input(type="text" name="name" id="name" autocomplete='off' value=station.name)
+            tr
+              td
+                label(for="price") 가격
+              td
+                input(type="number" name="price" id="price" autocomplete='off' value=station.price)
+            tr
+              td
+                label(for="picName") 이미지
+              td
+                input(type="text" name="picName" id="picName" autocomplete='off' value=station.picName)
+        button(type="submit") 수정

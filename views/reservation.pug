@@ -22,7 +22,8 @@ html(lang="en")
                     label(for='station' style='font-size:16pt') 여행지
                   td
                     select(name='station' id='station')
-                      option(value="france") 프랑스
+                      -for (let i=0;i<stations.length;i++)
+                        option(value=stations[i]._id)= stations[i].name
                   td(rowspan='2')
                     button(type="submit") 예약
                 tr

@@ -2,9 +2,13 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const Reservation = require('../models/reservation')
+const Station = require('../models/station')
 
 router.get('/', (req, res) => {
-  res.render('reservation', {user: req.user})
+  Station.find({}, (err, stations) => {
+    if(err) {return console.log(err)}
+    res.render('reservation', {user: req.user, stations:stations})
+  })
 })
 
 router.post('/', (req, res) => {
@@ -15,7 +19,7 @@ router.post('/', (req, res) => {
   })
   Reservation.create(inputData, (err, inputDate) => {
     if(err) return console.log(err)
-    res.redirect('/reservation')
+    res.redirect('/mypage')
   })
 })
 
